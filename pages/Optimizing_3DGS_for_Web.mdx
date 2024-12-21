@@ -1,0 +1,63 @@
+
+# Optimizing 3DGS for Web Deployment
+
+## Why File Size Matters in 3DGS Web Deployment
+
+Finding the right balance between file size and quality is crucial for successful 3DGS web deployment. Reflct can automatically convert your .ply files to the .ksplat format, significantly reducing file size by 6-10x. This optimization depends on whether spherical harmonics are included in the scene. Regardless, .ply files can be very large, so further optimization is still necessary to ensure the best balance between quality and performance for web deployment.
+
+Three main factors significantly influence the overall file size:
+
+### 1. Size of Source Images
+
+We recommend resizing source images to 1600px before training. This size offers a good balance between visual quality and file size, ensuring that your scenes look good while remaining lightweight. Larger resolutions should only be used when very fine details in the scene are essential.
+
+### 2. Spherical Harmonics
+
+Reflct offers the option to include Spherical Harmonics in your scene. This feature enhances how light interacts with the splats, improving visual quality. However, it significantly increases the file size. If file size is a priority, removing Spherical Harmonics can lead to substantial size reductions while retaining essential scene details.
+
+### 3. Splat Count
+
+The number of splats in a scene has a direct impact on file size. Carefully optimizing the splat count is essential to ensure the right balance between visual quality and usability.
+
+## Optimizing Splat Count
+
+Optimizing the number of splats in a 3DGS scene is key to balancing file size and visual quality. Since splat count directly impacts file size, careful adjustments ensure faster loading times without sacrificing visual quality, which is crucial for commercial applications.
+
+For a scene trained on 1600px images, here are some examples of file sizes after optimization from the same dataset:
+
+| Splat Count      | Approximate File Size (After .ksplat conversion) |
+| ---------------- | ------------------------------------------------ |
+| 3 Million splats | 150 MB                                           |
+| 1 Million splats | 50 MB                                            |
+| 800k splats      | 35 MB                                            |
+| 560k splats      | 26 MB                                            |
+| 237k splats      | 11 MB                                            |
+
+## How to Determine the Best Splat Count for Your Scene
+
+The nature of your scene plays a significant role in determining how many splats are needed to achieve an optimal balance between visual quality and file size. Scenes with complex and detailed textures, such as dense foliage or gravel paths, demand higher splat counts to faithfully capture their fine geometry and textures. [Insert image showing a comparison of high-detail and low-detail splat rendering] In contrast, simpler scenes featuring large flat surfaces, like indoor environments, can often maintain a high level of quality with significantly fewer splats.
+
+Outdoor scenes with details like leaves, branches, or textured ground need higher splat counts to accurately capture their intricate features. In contrast, indoor environments with smooth surfaces and simple lines can achieve good quality with fewer splats, resulting in smaller files and quicker load times without losing visual appeal.
+
+## How to Optimize Splat Count in PostShot
+
+### Using ADC for Optimization (recommended)
+
+1. Select the ADC profile in PostShot.
+2. Adjust the "Splat Density" field to optimize the splat count. [Insert image of PostShot interface highlighting the Splat Density field]
+3. Start with a density of 1, run the training, and evaluate the total splat count.
+4. For subsequent runs, adjust the density to a value below 1 (e.g., set it to 0.8 to achieve a 20% reduction in splat count). This adjustment should be guided by the specific needs and complexity of the scene.
+5. Keep reducing splat count until you see unacceptable quality loss in the scene.
+
+### Using MCMC for Optimization
+
+1. Select the MCMC profile in PostShot.
+2. Set the "Max Splat Count" field to define the total number of splats directly.
+
+## Finding the Right Balance Between Performance and Quality
+
+Testing performance depends on the context. In e-commerce environments, prioritizing smaller file sizes for faster load times is crucial. However, higher-quality scenes may be acceptable for custom walkthroughs or client-specific demos if end users can tolerate longer load times.
+
+## Managing Trade-offs: Quality vs. File Size
+
+While visual quality can take precedence in scenarios like client demos, file size should be the primary focus for mass-market use cases such as e-commerce. Reducing splat count too far can lead to loss of fine detail, but indoor environments often retain good quality at lower splat counts compared to outdoor or high-geometry scenes, which need more splats to preserve detail.

@@ -1,7 +1,7 @@
 {
-  "name": "nextra-docs-template",
+  "name": "reflct-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "Reflct Documentation",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
-    "next": "^13.0.6",
-    "nextra": "latest",
-    "nextra-theme-docs": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "^15.1.2",
+    "nextra": "^3.3.0",
+    "nextra-theme-docs": "^3.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "18.11.10",
