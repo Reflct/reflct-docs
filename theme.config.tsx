@@ -19,9 +19,6 @@ const config: DocsThemeConfig = {
       </span>
     )
   },
-  project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
-  },
   chat: {
     link: 'https://discord.gg/rfYNxSw3yx',
   },
