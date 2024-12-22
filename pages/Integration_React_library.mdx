@@ -1,0 +1,177 @@
+# @reflct/react
+
+## Overview
+
+A React library for integrating Reflct 3D scenes into your React apps.
+
+Visit [Reflct.app](https://reflct.app) for more information.
+
+## Installation
+
+To install the package, run:
+
+```bash copy
+npm install @reflct/react
+```
+
+or, if you're using Yarn:
+
+```bash copy
+yarn add @reflct/react
+```
+
+## Getting Started
+
+Here's a basic example of how to use the `Viewer` component:
+
+```js {2,5}
+import React from "react";
+import { Viewer } from "@reflct/react";
+
+const Page = () => {
+  return <Viewer id={"your-scene-id"} apikey={"your-apikey"} />;
+};
+
+export default Page;
+```
+
+## Advanced Usage
+
+The `Viewer` component includes props for listening to events and customizing the UI:
+
+```javascript
+<Viewer
+  id={"your-scene-id"}
+  apikey={"your-apikey"}
+  isPreview={true}
+  sharedMemoryForWorkers={false}
+  className={"your-class-name"}
+  // Event handlers
+  onLoadStart={() => {}}
+  onLoadProgressUpdate={(progress) => {}}
+  onLoadComplete={(viewGroups, global) => {}}
+  onStateChangeStart={(targetView, targetViewGroup, global) => {}}
+  onStateChangeComplete={(currentView, currentViewGroup, global) => {}}
+  onError={(error) => {}}
+/>
+```
+
+### Props
+
+| Prop                     | Type    | Description                        |
+| ------------------------ | ------- | ---------------------------------- |
+| `id`                     | string  | The unique ID of your scene        |
+| `apikey`                 | string  | Your API key                       |
+| `isPreview`              | boolean | Use a preview version of the scene |
+| `sharedMemoryForWorkers` | boolean | Use shared memory for workers      |
+| `className`              | string  | Custom CSS class for the viewer    |
+
+### Events
+
+| Event                   | Type                                              | Description                               |
+| ----------------------- | ------------------------------------------------- | ----------------------------------------- |
+| `onLoadStart`           | `() => void`                                      | Triggered when the scene starts loading   |
+| `onLoadProgressUpdate`  | `(progress: number) => void`                      | Updates as the scene loads                |
+| `onLoadComplete`        | `(viewGroups, global) => void`                    | Triggered when the scene is fully loaded  |
+| `onStateChangeStart`    | `(targetView, targetViewGroup, global) => void`   | Triggered at the start of a state change  |
+| `onStateChangeComplete` | `(currentView, currentViewGroup, global) => void` | Triggered when a state change is complete |
+| `onError`               | `(error: string) => void`                         | Triggered when an error occurs            |
+
+### Example: Using Events and Metadata
+
+You can use metadata from events to update your application logic, such as state or UI:
+
+```javascript
+import React from "react";
+import { Viewer } from "@reflct/react";
+import useProductStore from "../stores/product-store";
+
+const Page = () => {
+  const extractMetadata = (viewGroups, global, key) => {
+    return (
+      viewGroups[0].views[0].metadata?.[key] ||
+      viewGroups[0].metadata?.[key] ||
+      global.metadata?.[key]
+    );
+  };
+
+  return (
+    <Viewer
+      id={sceneId}
+      apikey={apikey}
+      onLoadComplete={(viewGroups, global) => {
+        useProductStore.setState((state) => {
+          state.loading = false;
+          state.title = extractMetadata(viewGroups, global, "productTitle");
+          state.subtitle = extractMetadata(viewGroups, global, "productCategory");
+          const price = extractMetadata(viewGroups, global, "price");
+          state.price = !isNaN(Number(price)) ? Number(price) : null;
+        });
+      }}
+    />
+  );
+};
+```
+
+### Customizing the UI
+
+You can pass children to customize the viewer's UI:
+
+```javascript
+<Viewer id={"your-scene-id"} apikey={"your-apikey"}>
+  {({
+    currentView,
+    currentViewGroup,
+    global,
+    index,
+    automode,
+    setAutomode,
+    isLoading,
+    nextView,
+    prevView,
+  }) => (
+    <div>Custom Controls</div>
+  )}
+</Viewer>
+```
+
+### Additional Props for Customization
+
+| **Prop**           | **Type** | **Description**                           |
+| ------------------ | -------- | ----------------------------------------- |
+| `currentView`      | object   | Metadata for the current view             |
+| `currentViewGroup` | object   | Metadata for the current view group       |
+| `global`           | object   | Global scene metadata                     |
+| `index`            | number   | Current view index                        |
+| `automode`         | boolean  | Is auto mode enabled?                     |
+| `setAutomode`      | function | Function to toggle auto mode              |
+| `isLoading`        | boolean  | Is the scene loading?                     |
+| `nextView`         | function | Function to navigate to the next view     |
+| `prevView`         | function | Function to navigate to the previous view |
+
+## CORS Issues and SharedArrayBuffer
+
+This package uses `SharedArrayBuffer` by default for improved performance. However, this may cause CORS issues in browser environments.
+
+### Security Requirements
+
+To avoid CORS issues, ensure your document operates in a secure context. Add the following headers to your server configuration:
+
+```http copy
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+```
+
+For more details, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements).
+
+### Disabling SharedArrayBuffer
+
+If you cannot configure your server, disable `SharedArrayBuffer` by setting the `sharedMemoryForWorkers` prop to `false`:
+
+```js {4}
+<Viewer
+  id={"your-scene-id"}
+  apikey={"your-apikey"}
+  sharedMemoryForWorkers={false}
+/>
+```
