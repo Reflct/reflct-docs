@@ -1,0 +1,82 @@
+# 3DGS Capture Tips
+
+## Introduction
+
+Gaussian splatting is a groundbreaking technique that transforms images or video into photorealistic 3D scenes. Success hinges on capturing high-quality images. This guide will walk you through the steps to prepare your scene, configure your camera, and capture the best possible images or video for Gaussian splats. Whether you’re a beginner or looking to refine your technique, these tips will ensure consistent, clear, and comprehensive captures.
+
+**Additional Resources:**
+
+- [Gaussian Splatting Guide (NYT)](https://rd.nytimes.com/projects/gaussian-splatting-guide/)
+- [YouTube Tutorial on Gaussian Splatting](https://youtu.be/08NYHDwOqow?si=Xh0NBgmhr2614wCr)
+- [Medium Article on Image Capture for Gaussian Splatting](https://medium.com/@heyulei/capture-images-for-gaussian-splatting-81d081bbc826)
+
+Images used for 3D Gaussian Splats (3DGS) should meet three essential criteria:
+
+- **Consistency:** Maintain uniform lighting, focus, and settings across all shots. Any variations in ISO, shutter speed, or aperture can introduce artifacts.
+- **Clarity:** Avoid blur, shallow depth of field, or motion distortion. The goal is sharp, focused captures that preserve every detail.
+- **Coverage:** Capture all desired angles and perspectives to ensure full visibility of your subject in the final scene.
+
+## Preparing the Scene
+
+Getting your scene ready is one of the most important steps for high-quality results. Start by tidying up your workspace—it should be clean, organized, and well-lit. Make sure there’s enough space around objects to allow for plenty of camera angles. Clutter or overlapping items can block key features and hurt the final quality, so arrange everything thoughtfully. Pay attention to lighting and how objects are placed to make sure everything you want to capture is clearly visible. Taking the time to set up your scene right will make the rest of the process much smoother.
+
+## Camera Settings
+
+### Photography Settings
+
+- **Aperture:** Set to keep the entire image in focus with no depth of field. Avoid shallow focus settings that can blur important details.
+- **ISO:** Use a low value, ideally 100, to minimize noise. Keep ISO consistent throughout the shoot.
+- **Shutter Speed:** Start with 1/13 sec for steady, well-lit shots and adjust based on lighting. Avoid auto settings.
+- **Focal Length:** Use 16mm for wide, distortion-free captures.
+- **Focus Mode:** Select manual focus to maintain uniformity across images.
+- **White Balance:** Set manually and ensure consistency.
+- **File Format:** Choose JPEG for simplicity or RAW for advanced editing flexibility.
+
+### Video Settings (GoPro)
+
+- **Profile:** Standard.
+- **Resolution:** 5.3k for high clarity.
+- **Aspect Ratio:** 16:9.
+- **Frame Rate:** 60fps for well-lit scenes; adjust to 30fps for darker conditions.
+- **Shutter Speed:** Match to frame rate (e.g., 1/240 sec for 60fps, 1/120 sec for 30fps).
+- **ISO:** Set between 100 and 200, ensuring both minimum and maximum values are identical.
+- **White Balance:** Fixed at 4500k; avoid auto settings.
+- **Lens:** Linear for accurate geometry.
+- **Stabilization:** Enable HyperSmooth to reduce motion blur.
+
+Still images generally provide higher quality for Gaussian splats, while video offers faster capture. Choose based on your priorities.
+
+## Shooting
+
+Before you start shooting, take a moment to double-check your camera settings. This simple step can save a lot of frustration later. Incorrect settings might not become apparent until reconstruction, which could compromise your final results.
+
+### Understanding Parallax
+
+Parallax is a critical concept in 3D reconstruction, referring to the apparent shift in the position of an object when viewed from different angles. This shift allows photogrammetry software to analyze differences between images, triangulate points, and generate highly accurate 3D models. To fully leverage parallax, it is essential to plan your capture process with several key principles in mind:
+
+- **Capture from Multiple Angles:** Shoot your subject from as many different viewpoints as possible. This creates the parallax effect that software uses to calculate 3D depth and structure.
+- **Strategic Overlap:** Make sure each image overlaps the next by 70-80%. This ensures enough matching points for the software to connect and triangulate data.
+- **Diverse Camera Positions:** Move your camera up, down, and around your subject to capture horizontal and vertical parallax. This diversity leads to more precise reconstructions.
+- **Depth Variation:** Mix in shots from different distances to capture the subject’s depth more effectively, especially for detailed or complex surfaces.
+
+By integrating these practices, you provide the best possible dataset for your 3D reconstruction software.
+
+### Shooting Stills
+
+To maximize parallax and coverage, shoot from diverse angles with 70-80% overlap between images. A tripod can be useful if the lighting conditions require slower shutter speeds to maintain proper exposure, but it’s not strictly necessary in all cases. If you can use high shutter speeds, interval shooting or an intervalometer is a great way to streamline the capture process and reduce overall time. While you are shooting, take a moment to review your shots to make sure everything is sharp and well-lit. Checking as you go can save time and prevent potential issues in the final reconstruction.
+
+### Shooting Video
+
+For video, capture steady, continuous footage by physically moving the camera rather than rotating it. Start with wide arcs at a low height and progressively increase height while maintaining smooth motion. Include depth variations by changing your distance from the subject. Once wide shots are complete, move closer for detailed captures, ensuring all sides and angles are covered. Over-capture the scene—walls, ceilings, and floors—to allow flexibility during post-processing. Asymmetrical and diverse viewpoints are particularly effective for capturing intricate surfaces.
+
+With video capture, you’ll need a process to extract the frames from the video as images. Depending on the length and frame rate of the video, capturing every frame could result in thousands of images. A good starting point is extracting three frames per second; if you were moving slowly during capture, one or two frames per second may suffice.
+
+Once you have the frames extracted, isolate and remove any images with motion blur. See our GoPro guide for a detailed step-by-step process to maximize the quality of video captures, including tools to isolate clear frames.
+
+### How many Images should you capture? 
+
+The number of images you need depends on what you're capturing and how many angles you want to cover for your users. A smaller dataset might include around 100 images, while a large dataset can go up to 1000 images or more. For individual subjects or objects, aiming for 100-200 images is usually sufficient. For larger spaces, the number of images will vary based on the area’s size and complexity. 
+
+## Post-Processing
+
+Post-processing is an essential step for refining your data and enhancing the quality of your final renders. Grading your images is highly recommended, as it directly impacts the colors and overall appearance of the scene. Tools like Adobe Lightroom, Capture One, or DaVinci Resolve are excellent for adjusting color balance, contrast, and brightness. If you’ve used RAW files, take advantage of their flexibility to fine-tune white balance and sharpen details. Cropping unnecessary areas and aligning data carefully can further improve reconstruction accuracy. Investing time in post-processing will yield polished and professional results.

@@ -5,15 +5,15 @@ import { useTheme } from 'next-themes'
 
 const config: DocsThemeConfig = {
   logo: () => {
-    const { theme } = useTheme()
+    const { resolvedTheme } = useTheme()
     return (
       <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <Image 
-          src={theme === 'dark' ? '/reflct-logo-white.svg' : '/reflct-logo.svg'} 
+          src={resolvedTheme === 'dark' ? '/reflct-logo-white.svg' : '/reflct-logo.svg'} 
           alt="Reflct Logo" 
           width={150} 
           height={150} 
-          style={{ height: '40px', width: 'auto' }}
+          style={{ height: '32px', width: 'auto' }}
           priority
         />
       </span>
@@ -22,7 +22,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.gg/rfYNxSw3yx',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/reflct/reflct-docs',
   footer: {
     content: 'Reflct docs',
   },
