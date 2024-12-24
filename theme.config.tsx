@@ -1,31 +1,24 @@
-import React from 'react'
-import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
-import Image from 'next/image'
-import { useTheme } from 'next-themes'
+import { DocsThemeConfig } from "nextra-theme-docs";
+import Logo from "./components/logo";
 
 const config: DocsThemeConfig = {
-  logo: () => {
-    const { resolvedTheme } = useTheme()
-    return (
-      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <Image 
-          src={resolvedTheme === 'dark' ? '/reflct-logo-white.svg' : '/reflct-logo.svg'} 
-          alt="Reflct Logo" 
-          width={150} 
-          height={150} 
-          style={{ height: '32px', width: 'auto' }}
-          priority
-        />
-      </span>
-    )
-  },
+  logo: <Logo />,
   chat: {
-    link: 'https://discord.gg/rfYNxSw3yx',
+    link: "https://discord.gg/rfYNxSw3yx",
   },
-  docsRepositoryBase: 'https://github.com/reflct/reflct-docs',
+  docsRepositoryBase: "https://github.com/reflct/reflct-docs",
   footer: {
-    content: 'Reflct docs',
+    content: "Reflct docs",
   },
-}
+  color: {
+    hue: 217,
+    saturation: 91,
+    lightness: 60,
+  },
+  backgroundColor: {
+    dark: "17, 18, 20, 1",
+    light: "255, 255, 255, 1",
+  },
+};
 
-export default config
+export default config;

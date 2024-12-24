@@ -1,8 +1,10 @@
-import type { AppProps } from 'next/app'
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
+import "./global.css";
 
-const inter = Inter({ subsets: ['latin'] })
+import type { AppProps } from "next/app";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,5 +13,5 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </main>
     </ThemeProvider>
-  )
+  );
 }
