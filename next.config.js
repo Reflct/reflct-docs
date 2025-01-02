@@ -11,27 +11,6 @@ module.exports = async () => {
       unoptimized: true,
     },
     
-    // Add metadata configuration
-    metadata: {
-      title: 'Reflct Docs & Guides',
-      description: 'Learn how to use Reflct - Web 3D Gaussian Splatting made easy.',
-      openGraph: {
-        title: 'Reflct Docs & Guides',
-        description: 'Learn how to use Reflct - Web 3D Gaussian Splatting made easy.',
-        images: [
-          {
-            url: '/og-image.png',
-            width: 1200,
-            height: 630,
-            alt: 'Reflct Docs & Guides',
-          },
-        ],
-      },
-      icons: {
-        icon: '/favicon.png',
-      },
-    },
-    
     webpack(config) {
       // Grab the existing rule that handles SVG imports
       const fileLoaderRule = config.module.rules.find((rule) =>

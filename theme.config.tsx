@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
+import Head from 'next/head'
 
 const config: DocsThemeConfig = {
   logo: () => {
@@ -17,6 +18,18 @@ const config: DocsThemeConfig = {
           priority
         />
       </span>
+    )
+  },
+  head: () => {
+    return (
+      <>
+        <title>Reflct Docs & Guides</title>
+        <meta name="description" content="Learn how to use Reflct - Web 3D Gaussian Splatting made easy." />
+        <meta property="og:title" content="Reflct Docs & Guides" />
+        <meta property="og:description" content="Learn how to use Reflct - Web 3D Gaussian Splatting made easy." />
+        <meta property="og:image" content="/og-image.png" />
+        <link rel="icon" href="/favicon.png" />
+      </>
     )
   },
   chat: {
