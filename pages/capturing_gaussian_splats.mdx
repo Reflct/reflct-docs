@@ -67,11 +67,26 @@ To maximize parallax and coverage, shoot from diverse angles with 70-80% overlap
 
 ### Shooting Video
 
-For video, capture steady, continuous footage by physically moving the camera rather than rotating it. Start with wide arcs at a low height and progressively increase height while maintaining smooth motion. Include depth variations by changing your distance from the subject. Once wide shots are complete, move closer for detailed captures, ensuring all sides and angles are covered. Over-capture the scene—walls, ceilings, and floors—to allow flexibility during post-processing. Asymmetrical and diverse viewpoints are particularly effective for capturing intricate surfaces.
+For video, the goal is to capture steady, continuous footage by physically moving the camera rather than rotating it.
 
-With video capture, you’ll need a process to extract the frames from the video as images. Depending on the length and frame rate of the video, capturing every frame could result in thousands of images. A good starting point is extracting three frames per second; if you were moving slowly during capture, one or two frames per second may suffice.
+#### For Small Scenes and Individual Products
+Start with wide arcs at a low height, gradually increasing the height while maintaining smooth, deliberate motion. Introduce depth variations by adjusting your distance from the subject. Once the wide shots are complete, move in closer to capture detailed shots of the object, ensuring all sides and angles are covered. Remember to over-capture the scene by including walls, ceilings, and floors. Asymmetrical and diverse viewpoints are especially effective for intricate surfaces.
 
-Once you have the frames extracted, isolate and remove any images with motion blur. See our GoPro guide for a detailed step-by-step process to maximize the quality of video captures, including tools to isolate clear frames.
+#### For Capturing Entire Rooms
+Begin by moving parallel to each wall, facing it directly, and making ascending passes. Avoid being too far from the wall to retain detail; for large rooms, stay within 3 meters on your initial passes. After capturing the walls, move in to capture the details of each item of interest, following the earlier guidelines for small scenes with ascending arcs. Ensure all sides of each item are well-captured. 
+
+Once walls and objects are covered, aim for broad coverage of the floor and ceiling. For the floor, hold the camera high and angle it downward, moving systematically in a grid through the space. Repeat the process for the ceiling.
+
+### Extracting Frames from Video
+With video capture, extracting frames into still images is essential. Depending on the video’s length and frame rate, capturing every frame can result in thousands of images. Aim to extract only enough frames to ensure about 80% overlap between them, avoiding images with motion blur.
+
+We recommend using our dedicated tool for extracting sharp frames from video:
+[https://frame-extraction-tool.reflct.app/](https://frame-extraction-tool.reflct.app/)
+
+- For best results, select the best frame approximately every 0.5 seconds.
+- Start by extracting at least 10 frames per second, then select the best frame from batches of 5. This method provides good coverage and selects one optimal frame for every 0.5 seconds of footage.
+
+If your video is too large for this tool, consider splitting the video into smaller chunks. Alternatively, you can use command-line tools like FFMPEG to extract frames, followed by frame selection using this repository: [https://github.com/SharkWipf/nerf_dataset_preprocessing_helper](https://github.com/SharkWipf/nerf_dataset_preprocessing_helper).
 
 ### How many Images should you capture? 
 
