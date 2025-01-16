@@ -27,8 +27,10 @@ const config: DocsThemeConfig = {
         <meta name="description" content="Learn how to use Reflct - Web 3D Gaussian Splatting made easy." />
         <meta property="og:title" content="Reflct Docs & Guides" />
         <meta property="og:description" content="Learn how to use Reflct - Web 3D Gaussian Splatting made easy." />
-        <meta property="og:image" content="/reflct-og.jpg" />
-        <link rel="icon" href="/favicon.png" />
+        <meta property="og:image" content="https://docs.reflct.app/reflct-og.jpg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" type="image/png" href="/favicon.png" />
       </>
     )
   },
