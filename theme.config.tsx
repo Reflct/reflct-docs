@@ -27,7 +27,7 @@ const config: DocsThemeConfig = {
         <meta name="description" content="Learn how to use Reflct - Web 3D Gaussian Splatting made easy." />
         <meta property="og:title" content="Reflct Docs & Guides" />
         <meta property="og:description" content="Learn how to use Reflct - Web 3D Gaussian Splatting made easy." />
-        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image" content="/reflct-og.jpg" />
         <link rel="icon" href="/favicon.png" />
       </>
     )
@@ -35,7 +35,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.gg/rfYNxSw3yx',
   },
-  docsRepositoryBase: 'https://github.com/reflct/reflct-docs',
+  docsRepositoryBase: 'https://github.com/Reflct/reflct-docs/blob/main',
   footer: {
     content: 'Reflct docs',
   },
