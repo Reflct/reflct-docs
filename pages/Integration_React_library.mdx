@@ -45,6 +45,7 @@ The `Viewer` component includes props for listening to events and customizing th
   apikey={"your-apikey"}
   isPreview={true}
   sharedMemoryForWorkers={false}
+  sceneRevealMode="gradual"
   className={"your-class-name"}
   // Event handlers
   onLoadStart={() => {}}
@@ -58,13 +59,14 @@ The `Viewer` component includes props for listening to events and customizing th
 
 ### Props
 
-| Prop                     | Type    | Description                        |
-| ------------------------ | ------- | ---------------------------------- |
-| `id`                     | string  | The unique ID of your scene        |
-| `apikey`                 | string  | Your API key                       |
-| `isPreview`              | boolean | Use a preview version of the scene |
-| `sharedMemoryForWorkers` | boolean | Use shared memory for workers      |
-| `className`              | string  | Custom CSS class for the viewer    |
+| Prop                     | Type    | Description                                          |
+| ------------------------ | ------- | ---------------------------------------------------- |
+| `id`                     | string  | The unique ID of your scene                          |
+| `apikey`                 | string  | Your API key                                         |
+| `isPreview`              | boolean | Use a preview version of the scene                   |
+| `sceneRevealMode`        | string  | The mode to reveal the scene. 'gradual' or 'instant' |
+| `sharedMemoryForWorkers` | boolean | Use shared memory for workers                        |
+| `className`              | string  | Custom CSS class for the viewer                      |
 
 ### Events
 
@@ -103,7 +105,11 @@ const Page = () => {
         useProductStore.setState((state) => {
           state.loading = false;
           state.title = extractMetadata(viewGroups, global, "productTitle");
-          state.subtitle = extractMetadata(viewGroups, global, "productCategory");
+          state.subtitle = extractMetadata(
+            viewGroups,
+            global,
+            "productCategory"
+          );
           const price = extractMetadata(viewGroups, global, "price");
           state.price = !isNaN(Number(price)) ? Number(price) : null;
         });
@@ -127,11 +133,10 @@ You can pass children to customize the viewer's UI:
     automode,
     setAutomode,
     isLoading,
+    loadProgress,
     nextView,
     prevView,
-  }) => (
-    <div>Custom Controls</div>
-  )}
+  }) => <div>Custom Controls</div>}
 </Viewer>
 ```
 
@@ -146,6 +151,7 @@ You can pass children to customize the viewer's UI:
 | `automode`         | boolean  | Is auto mode enabled?                     |
 | `setAutomode`      | function | Function to toggle auto mode              |
 | `isLoading`        | boolean  | Is the scene loading?                     |
+| `loadProgress`     | number   | The progress of the scene loading         |
 | `nextView`         | function | Function to navigate to the next view     |
 | `prevView`         | function | Function to navigate to the previous view |
 
