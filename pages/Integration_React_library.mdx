@@ -8,16 +8,47 @@ Visit [Reflct.app](https://reflct.app) for more information.
 
 ## Installation
 
+> [!IMPORTANT]
+> Compatibility with React 19
+>
+> Recent releases of React 19 had compatibility issues with our dependencies.
+> So we've moved those dependencies to the peer dependencies to resolve the issues.
+> Make sure to install correct versions of peer dependencies to use this package from now on.
+
 To install the package, run:
 
-```bash copy
+```bash
+# Install peer dependencies
+npm install three@0.168.0 @react-three/fiber @react-three/drei
+
+# Install the package
 npm install @reflct/react
 ```
 
-or, if you're using Yarn:
+or if you're using yarn:
 
-```bash copy
+```bash
+# Install peer dependencies
+yarn add three@0.168.0 @react-three/fiber @react-three/drei
+
+# Install the package
 yarn add @reflct/react
+```
+
+### React 18
+
+If you're using React 18, you need to install the following peer dependencies:
+
+- three@0.168.0
+- @react-three/fiber@8
+- @react-three/drei@9
+
+```bash
+# Install peer dependencies
+npm install three@0.168.0 @react-three/fiber@8 @react-three/drei@9
+
+# Install the package
+npm install @reflct/react
 ```
 
 ## Getting Started
@@ -143,23 +174,43 @@ You can pass children to customize the viewer's UI:
 </Viewer>
 ```
 
-### Additional Props for Customization
+| **Prop**           | **Type**            | **Description**                           |
+| ------------------ | ------------------- | ----------------------------------------- |
+| `currentView`      | CurrentViewMetadata | Metadata for the current view             |
+| `currentViewGroup` | ViewGroupMetadata   | Metadata for the current view group       |
+| `global`           | GlobalMetadata      | Global scene metadata                     |
+| `index`            | number              | Current view index                        |
+| `automode`         | boolean             | Is auto mode enabled?                     |
+| `setAutomode`      | function            | Function to toggle auto mode              |
+| `isLoading`        | boolean             | Is the scene loading?                     |
+| `loadProgress`     | number              | The progress of the scene loading         |
+| `nextView`         | function            | Function to navigate to the next view     |
+| `prevView`         | function            | Function to navigate to the previous view |
+| `summaryImage`     | string or null      | The summary image of the scene            |
+| `linkedScenes`     | array               | The linked scenes of the scene            |
+| `loadScene`        | function            | The function to load linked scene         |
 
-| **Prop**           | **Type**       | **Description**                           |
-| ------------------ | -------------- | ----------------------------------------- |
-| `currentView`      | object         | Metadata for the current view             |
-| `currentViewGroup` | object         | Metadata for the current view group       |
-| `global`           | object         | Global scene metadata                     |
-| `index`            | number         | Current view index                        |
-| `automode`         | boolean        | Is auto mode enabled?                     |
-| `setAutomode`      | function       | Function to toggle auto mode              |
-| `isLoading`        | boolean        | Is the scene loading?                     |
-| `loadProgress`     | number         | The progress of the scene loading         |
-| `nextView`         | function       | Function to navigate to the next view     |
-| `prevView`         | function       | Function to navigate to the previous view |
-| `summaryImage`     | string or null | The summary image of the scene            |
-| `linkedScenes`     | array          | The linked scenes of the scene            |
-| `loadScene`        | function       | The function to load linked scene         |
+If you wish to customise the UI of the hitpoints, you can do that by giving the `hitPoint` prop.
+
+```jsx
+<Viewer
+  id={"your-scene-id"}
+  apikey={"your-apikey"}
+  hitPoint={(state: {
+    index: number,
+    isSelected: boolean,
+    inCurrentGroup: boolean,
+    select: () => void,
+  }) => <button onClick={state.select}>Hitpoint</button>}
+/>
+```
+
+| Props          | Type                  | Description                                       |
+| -------------- | --------------------- | ------------------------------------------------- |
+| index          | number                | The index of the hitpoint                         |
+| isSelected     | boolean               | Whether the hitpoint is selected                  |
+| inCurrentGroup | boolean               | Whether the hitpoint is in the current view group |
+| select         | function (() => void) | The function to select the hitpoint               |
 
 ## CORS Issues and SharedArrayBuffer
 
