@@ -78,6 +78,8 @@ The `Viewer` component includes props for listening to events and customizing th
   sharedMemoryForWorkers={false}
   sceneRevealMode="gradual"
   className={"your-class-name"}
+  transitionSpeedMultiplier={1.0}
+  automodeTransitionSpeedMultiplier={0.5}
   // Event handlers
   onLoadStart={() => {}}
   onLoadProgressUpdate={(progress) => {}}
@@ -90,25 +92,27 @@ The `Viewer` component includes props for listening to events and customizing th
 
 ### Props
 
-| Prop                     | Type    | Description                                          |
-| ------------------------ | ------- | ---------------------------------------------------- |
-| `id`                     | string  | The unique ID of your scene                          |
-| `apikey`                 | string  | Your API key                                         |
-| `isPreview`              | boolean | Use a preview version of the scene                   |
-| `sceneRevealMode`        | string  | The mode to reveal the scene. 'gradual' or 'instant' |
-| `sharedMemoryForWorkers` | boolean | Use shared memory for workers                        |
-| `className`              | string  | Custom CSS class for the viewer                      |
+| Prop                                | Type    | Description                                                        |
+| ----------------------------------- | ------- | ------------------------------------------------------------------ |
+| `id`                                | string  | The unique ID of your scene                                        |
+| `apikey`                            | string  | Your API key                                                       |
+| `isPreview`                         | boolean | Use a preview version of the scene                                 |
+| `sceneRevealMode`                   | string  | The mode to reveal the scene. 'gradual' or 'instant'               |
+| `sharedMemoryForWorkers`            | boolean | Use shared memory for workers                                      |
+| `className`                         | string  | Custom CSS class for the viewer                                    |
+| `transitionSpeedMultiplier`         | number  | Speed multiplier for camera transitions (default: 1)               |
+| `automodeTransitionSpeedMultiplier` | number  | Speed multiplier for camera transitions in automode (default: 0.5) |
 
 ### Events
 
-| Event                   | Type                                              | Description                               |
-| ----------------------- | ------------------------------------------------- | ----------------------------------------- |
-| `onLoadStart`           | `() => void`                                      | Triggered when the scene starts loading   |
-| `onLoadProgressUpdate`  | `(progress: number) => void`                      | Updates as the scene loads                |
-| `onLoadComplete`        | `(viewGroups, global) => void`                    | Triggered when the scene is fully loaded  |
-| `onStateChangeStart`    | `(targetView, targetViewGroup, global) => void`   | Triggered at the start of a state change  |
-| `onStateChangeComplete` | `(currentView, currentViewGroup, global) => void` | Triggered when a state change is complete |
-| `onError`               | `(error: string) => void`                         | Triggered when an error occurs            |
+| Event                   | Type                                                      | Description                               |
+| ----------------------- | --------------------------------------------------------- | ----------------------------------------- |
+| `onLoadStart`           | `() => void`                                              | Triggered when the scene starts loading   |
+| `onLoadProgressUpdate`  | `(progress: number) => void`                              | Updates as the scene loads                |
+| `onLoadComplete`        | `(viewGroups, global, camera) => void`                    | Triggered when the scene is fully loaded  |
+| `onStateChangeStart`    | `(targetView, targetViewGroup, global, camera) => void`   | Triggered at the start of a state change  |
+| `onStateChangeComplete` | `(currentView, currentViewGroup, global, camera) => void` | Triggered when a state change is complete |
+| `onError`               | `(error: string) => void`                                 | Triggered when an error occurs            |
 
 ### Example: Using Events and Metadata
 
