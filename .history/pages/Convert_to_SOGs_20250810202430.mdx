@@ -1,0 +1,36 @@
+### Converting PLY Files to SOGs for Reflct
+
+To get the best performance for your 3D Gaussian Splats in Reflct, we recommend the **SOGs** format. This guide shows you how to convert your existing **PLY** files using the powerful, open-source **Splat-Transform** library, created by the talented team at PlayCanvas.
+
+**SOGs** (**Self-Organizing Gaussians)** is a format designed for high-performance, web-based rendering. Its key advantage lies in its powerful compression, which can shrink original **PLY** files by up to 20 times. This dramatic file size reduction also leads to more efficient memory usage, ensuring your creations load quickly and run smoothly for all users, on any device.
+
+### Prerequisites
+
+Before you begin, you'll need **Node.js** installed on your computer, which includes **npm** (Node Package Manager). If you don't have it, you can download it from the [official Node.js website](https://nodejs.org/).
+
+### Installation
+
+First, you'll need to install the PlayCanvas Splat Transform command-line tool. This is a simple process that you can complete in a few seconds using `npm`.
+
+1.  **Open your terminal or command prompt.**
+2.  **Run the following command to install the tool globally on your system:**
+    ```
+    npm install -g @playcanvas/splat-transform
+    ```
+
+This command downloads and installs the Splat Transform library, making it available for you to use from any directory on your computer.
+
+### Conversion Process
+
+Once the installation is complete, you are ready to convert your **PLY** files. The process is straightforward and can be completed with a single command. We recommend using a new folder for SOGs as the conversion will create several new files.
+
+* **Navigate to your project directory.** Open your terminal and use the `cd` command to move into the folder where your **PLY** file is located.
+* **Run the conversion command.** Use the following command to convert your file, replacing `your-file.ply` with the name of your file and `output-directory/` with the desired location for your converted files.
+    ```
+    splat-transform your-file.ply output-directory/your-file.meta.json
+    ```
+* **Verify your files.** After the command finishes, you will find your new **SOGs** files in the output directory you specified. This will include a `meta.json` file and a series of webp files that contain the splat data.
+
+### What's Next?
+
+Now that you have your **SOGs** files, you are ready to upload them to Reflct and start building your interactive 3D scenes. For more information on how to create stunning visualizations and experiences, check out our other guides on optimizing your scenes and capturing high-quality Gaussian Splats.
