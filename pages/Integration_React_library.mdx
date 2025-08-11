@@ -6,21 +6,9 @@ A React library for integrating Reflct 3D scenes into your React apps.
 
 Visit [Reflct.app](https://reflct.app) for more information.
 
-## Installation
-
-> [!IMPORTANT]
-> Compatibility with React 19
->
-> Recent releases of React 19 had compatibility issues with our dependencies.
-> So we've moved those dependencies to the peer dependencies to resolve the issues.
-> Make sure to install correct versions of peer dependencies to use this package from now on.
-
 To install the package, run:
 
 ```bash
-# Install peer dependencies
-npm install three@0.168.0 @react-three/fiber @react-three/drei
-
 # Install the package
 npm install @reflct/react
 ```
@@ -28,27 +16,8 @@ npm install @reflct/react
 or if you're using yarn:
 
 ```bash
-# Install peer dependencies
-yarn add three@0.168.0 @react-three/fiber @react-three/drei
-
 # Install the package
 yarn add @reflct/react
-```
-
-### React 18
-
-If you're using React 18, you need to install the following peer dependencies:
-
-- three@0.168.0
-- @react-three/fiber@8
-- @react-three/drei@9
-
-```bash
-# Install peer dependencies
-npm install three@0.168.0 @react-three/fiber@8 @react-three/drei@9
-
-# Install the package
-npm install @reflct/react
 ```
 
 ## Getting Started
@@ -75,8 +44,6 @@ The `Viewer` component includes props for listening to events and customizing th
   id={"your-scene-id"}
   apikey={"your-apikey"}
   isPreview={true}
-  sharedMemoryForWorkers={false}
-  sceneRevealMode="gradual"
   className={"your-class-name"}
   transitionSpeedMultiplier={1.0}
   automodeTransitionSpeedMultiplier={0.5}
@@ -215,30 +182,3 @@ If you wish to customise the UI of the hitpoints, you can do that by giving the 
 | isSelected     | boolean               | Whether the hitpoint is selected                  |
 | inCurrentGroup | boolean               | Whether the hitpoint is in the current view group |
 | select         | function (() => void) | The function to select the hitpoint               |
-
-## CORS Issues and SharedArrayBuffer
-
-This package uses `SharedArrayBuffer` by default for improved performance. However, this may cause CORS issues in browser environments.
-
-### Security Requirements
-
-To avoid CORS issues, ensure your document operates in a secure context. Add the following headers to your server configuration:
-
-```http copy
-Cross-Origin-Opener-Policy: same-origin
-Cross-Origin-Embedder-Policy: require-corp
-```
-
-For more details, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements).
-
-### Disabling SharedArrayBuffer
-
-If you cannot configure your server, disable `SharedArrayBuffer` by setting the `sharedMemoryForWorkers` prop to `false`:
-
-```js {4}
-<Viewer
-  id={"your-scene-id"}
-  apikey={"your-apikey"}
-  sharedMemoryForWorkers={false}
-/>
-```
