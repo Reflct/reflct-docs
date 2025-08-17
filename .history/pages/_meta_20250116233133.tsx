@@ -4,7 +4,6 @@ export default {
   views: "Creating views",
   Integration_React_library: "Integration via React library",
   Optimizing_3DGS_for_Web: "Optimizing 3DGS for Web",
-  Convert_to_SOGs: "Convert to SOGs",
   capturing_gaussian_splats: "Capturing Gaussian Splats",
   "reflct-app": {
     title: "Reflct.app ↗",
