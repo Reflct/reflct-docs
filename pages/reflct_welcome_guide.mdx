@@ -1,16 +1,4 @@
-# Welcome to Reflct!
-
-Thank you for joining us! Reflct is here to help you showcase 3D Gaussian splat scenes, making it straightforward to create, manage, and publish 3DGS assets with simple navigation and a smooth, polished user experience.
-
-## Getting Started
-
-This walkthrough will introduce you to the platform's main features and show you how to:
-
-- Upload and compress your .ply files.
-- Manage and set up views in your 3DGS scenes.
-- Publish your scenes with controlled navigation limits.
- 
- 
+# Getting Started with Reflct
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%', width: '100%', marginTop: '2rem', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
   <iframe 
@@ -24,8 +12,73 @@ This walkthrough will introduce you to the platform's main features and show you
   ></iframe>
 </div>
 
-After watching the video, you'll be ready to explore Reflct's features and start working on your 3D content. If you need help, [join our Discord](https://discord.gg/rfYNxSw3yx) or [contact us](mailto:willie@reflct.app).
+## 1. Create Your First Scene
 
----
+- Log in to Reflct
+- On the dashboard, click **New Scene**
+- Give your scene a name and tags
+- Drag and drop your `.ply` or SOGs bundle into the uploader
 
-Welcome to Reflct!
+### Optimization
+
+If you upload a `.ply`, you can choose to optimise the file. This converts it to a compressed `.ply` format, which is highly optimized at roughly 5-7x smaller than the original `.ply`. The process significantly reduces file size while preserving high visual quality. SOGs provides even greater compression at up to 20x, check our guide on how to convert to SOGs.
+
+## 2. Adjust the Scene Orientation
+
+After your scene loads, it's likely that you'll need to adjust the orientation:
+
+- Click **Edit Scene** in the top left
+- Enable the grid to see the horizon
+- Use the gizmos to rotate and align your scene correctly
+
+**Tip:** Most scenes will need a small rotation fix to align to the horizon.
+
+## 3. Navigate the Scene
+
+- **WASD** – Move through the scene
+- **Click** – Set orbit focus point
+- **Right-click / two-finger drag** – Free camera look
+- **Scroll** – Dolly in/out
+
+## 4. Set Up Views
+
+Views let you define camera angles and control how users explore your scene.
+
+- Go to the **Views** panel
+- Create a **View Group**, then add a **View**
+- Move the camera to a good angle, then click **Save**
+
+### Setting Orbit Limits
+
+Orbit limits are a key feature of Reflct, and ensure that your users only see what you want them to see. Click **Edit** on your view to see its details and configure orbit limits:
+
+- Limit how far users can pan up/down or side to side
+- Use the **Lock** icon to test movement boundaries
+- Move the camera while **Unlocked** to adjust its position, focus point, and zoom
+
+Saving updates the view's position and look-at target. Reset returns to the last saved state.
+
+### Zoom
+
+Each view can have its own zoom:
+
+- Lower values (e.g. 0.8) are wide, higher values are tighter
+- Zoom works like focal length in cameras - lower values create wide-angle effects with perspective distortion, while higher values give telephoto compression.
+
+Adjusting Zoom between views can create more interesting camera transitions and animations. 
+
+## 5. Preview and Share
+
+Once your views are set:
+
+- Click **Save & Preview** to test your scene as a viewer would see it
+- Use the **Share Scene** button to generate a link
+- Shared scenes respect the views and limits you define
+
+## Need Help?
+
+Join the [Reflct Discord](https://discord.gg/rfYNxSw3yx) for help, tips, and feedback.
+
+We'd love to hear what you're building.
+
+Enjoy creating ✨
