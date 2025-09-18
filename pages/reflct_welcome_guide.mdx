@@ -1,17 +1,5 @@
 # Getting Started with Reflct
 
-<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%', width: '100%', marginTop: '2rem', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-  <iframe 
-    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
-    src="https://www.youtube.com/embed/-fl5VQOLSPY?si=zHQRY_3otp7RsRly" 
-    title="YouTube video player" 
-    frameBorder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerPolicy="strict-origin-when-cross-origin" 
-    allowFullScreen
-  ></iframe>
-</div>
-
 ## 1. Create Your First Scene
 
 - Log in to Reflct
@@ -21,7 +9,7 @@
 
 ### Optimization
 
-If you upload a `.ply`, you can choose to optimise the file. This converts it to a compressed `.ply` format, which is highly optimized at roughly 5-7x smaller than the original `.ply`. The process significantly reduces file size while preserving high visual quality. SOGs provides even greater compression at up to 20x, check our guide on how to convert to SOGs.
+If you upload a `.ply`, you can choose to optimise the file. This converts it to a compressed `.ply` format, which is highly optimized at roughly 5-7x smaller than the original `.ply`. The process significantly reduces file size while preserving high visual quality. SOGs provides even greater compression at up to 20x, check our [guide on how to convert to SOGs](/Convert_to_SOGs).
 
 ## 2. Adjust the Scene Orientation
 
@@ -31,37 +19,66 @@ After your scene loads, it's likely that you'll need to adjust the orientation:
 - Enable the grid to see the horizon
 - Use the gizmos to rotate and align your scene correctly
 
+<div style={{ position: 'relative', paddingBottom: '42%', height: 0, overflow: 'hidden', maxWidth: '80%', width: '80%', margin: '2rem auto', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+  <video 
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+    controls
+    muted
+    playsInline
+  >
+    <source src="/edit-scene-rotation.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 **Tip:** Most scenes will need a small rotation fix to align to the horizon.
 
 ## 3. Navigate the Scene
 
 - **WASD** – Move through the scene
-- **Click** – Set orbit focus point
-- **Right-click / two-finger drag** – Free camera look
+- **Left-click** – Set orbit focus point
+- **Left-click and drag** - Orbit
+- **Right-click and drag** – Pan
 - **Scroll** – Dolly in/out
+- **Ctrl+Scroll** - Zoom
 
 ## 4. Set Up Views
 
 Views let you define camera angles and control how users explore your scene.
 
-- Go to the **Views** panel
-- Create a **View Group**, then add a **View**
-- Move the camera to a good angle, then click **Save**
+- Navigate around the scene untl you find a viewpoint you like
+- Go to the **Views** panel on the left of the screen
+- Create a **View Group**, then create a **View** - this will be the first view a user sees, you can edit and reorder views later.
+- Create as many views as you like, there is no limit.
 
 ### Setting Orbit Limits
 
-Orbit limits are a key feature of Reflct, and ensure that your users only see what you want them to see. Click **Edit** on your view to see its details and configure orbit limits:
+Orbit limits are a key feature of Reflct, and ensure that your users only see what you want them to see. Click **Edit** on your view to see its details and configure orbit limits using the sliders in the scene view.:
 
 - Limit how far users can pan up/down or side to side
 - Use the **Lock** icon to test movement boundaries
 - Move the camera while **Unlocked** to adjust its position, focus point, and zoom
+- If you don't set orbit limits, users orbits will be unrestricted.
 
-Saving updates the view's position and look-at target. Reset returns to the last saved state.
+<div style={{ position: 'relative', paddingBottom: '42%', height: 0, overflow: 'hidden', maxWidth: '80%', width: '80%', margin: '2rem auto', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+  <video 
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+    controls
+    muted
+    playsInline
+  >
+    <source src="/Edit-orbit-limits.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+Saving updates the view's position, look-at target, and zoom. Reset returns to the last saved state.
 
 ### Zoom
 
 Each view can have its own zoom:
 
+- You can change zoom by using ctrl+scroll, or manually adjusting the zoom field
 - Lower values (e.g. 0.8) are wide, higher values are tighter
 - Zoom works like focal length in cameras - lower values create wide-angle effects with perspective distortion, while higher values give telephoto compression.
 
@@ -71,9 +88,10 @@ Adjusting Zoom between views can create more interesting camera transitions and 
 
 Once your views are set:
 
-- Click **Save & Preview** to test your scene as a viewer would see it
-- Use the **Share Scene** button to generate a link
+- Click **Save & Preview** to test your scene as a viewer would see it 
+- Use the **Share** button to generate a link, scenes need to be published before sharing.
 - Shared scenes respect the views and limits you define
+- Published scenes are not shared anywhere automatically by Reflct.
 
 ## Need Help?
 
