@@ -1,0 +1,129 @@
+# Viewer Features
+
+Reflct gives you powerful control over how users experience your scenes. These viewer features are configured in the Edit View screen - click 'Edit' on any view to access the controls described below. 
+
+### Hit Points (Hot Spots)
+
+Hit points (also called hotspots) enable navigation between views. Toggle 'Show Hit Point' for each view where you want hotspot navigation available.
+
+<div style={{ position: 'relative', paddingBottom: '66.5%', height: 0, overflow: 'hidden', maxWidth: '80%', width: '80%', margin: '0 auto', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+  <video 
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+    controls
+    muted
+    playsInline
+  >
+    <source src="/Hotspot.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+Note: Users only see hotspots for views within the current view group, which helps prevent visual clutter. 
+
+### Text Overlays
+
+Text overlays can be added to your scenes by adding content to the text area in the Edit View screen and toggling 'Show Text Details'.
+
+<div style={{ position: 'relative', paddingBottom: '66.5%', height: 0, overflow: 'hidden', maxWidth: '80%', width: '80%', margin: '0 auto', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+  <video 
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+    controls
+    muted
+    playsInline
+  >
+    <source src="/text-overlays.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+Use the styling controls to customize the text appearance. Any links in the text overlay will be rendered as buttons. 
+
+### Transition Animation Controls
+
+The animation between views can be customized using the ease curve and transition duration. The duration is set in milliseconds. Note: if you have automode enabled, the duration will always be double the original value.
+
+The ease curve mapping shows position on the Y-axis and time on the X-axis. Click and drag the handles to customize the curve. Here are some examples, but you should experiment to find the best combination of ease and animation for your scenes. 
+
+#### Ease out (default)
+
+<div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap', margin: '1rem 0' }}>
+  <div style={{ flex: '1', minWidth: '300px', textAlign: 'center' }}>
+    <img src="/Ease Out.png" alt="Ease out curve example" style={{ maxWidth: '250px', width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }} />
+  </div>
+  <div style={{ flex: '1', minWidth: '300px' }}>
+    <div style={{ position: 'relative', paddingBottom: '66.5%', height: 0, overflow: 'hidden', width: '100%', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+      <video 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+        controls
+        muted
+        playsInline
+      >
+        <source src="/Ease Out.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+#### Ease in
+
+<div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap', margin: '1rem 0' }}>
+  <div style={{ flex: '1', minWidth: '300px', textAlign: 'center' }}>
+    <img src="/ease-in.png" alt="Ease in curve example" style={{ maxWidth: '250px', width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }} />
+  </div>
+  <div style={{ flex: '1', minWidth: '300px' }}>
+    <div style={{ position: 'relative', paddingBottom: '66.5%', height: 0, overflow: 'hidden', width: '100%', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+      <video 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+        controls
+        muted
+        playsInline
+      >
+        <source src="/Ease in.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+#### Ease in ease out
+
+<div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap', margin: '1rem 0' }}>
+  <div style={{ flex: '1', minWidth: '300px', textAlign: 'center' }}>
+    <img src="/ease in out.png" alt="Ease in and out curve example" style={{ maxWidth: '250px', width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }} />
+  </div>
+  <div style={{ flex: '1', minWidth: '300px' }}>
+    <div style={{ position: 'relative', paddingBottom: '66.5%', height: 0, overflow: 'hidden', width: '100%', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+      <video 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+        controls
+        muted
+        playsInline
+      >
+        <source src="/ease in out.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+#### Linear
+
+<div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap', margin: '1rem 0' }}>
+  <div style={{ flex: '1', minWidth: '300px', textAlign: 'center' }}>
+    <img src="/linear.png" alt="Linear curve example" style={{ maxWidth: '250px', width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }} />
+  </div>
+  <div style={{ flex: '1', minWidth: '300px' }}>
+    <div style={{ position: 'relative', paddingBottom: '66.5%', height: 0, overflow: 'hidden', width: '100%', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+      <video 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}
+        controls
+        muted
+        playsInline
+      >
+        <source src="/linear.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
