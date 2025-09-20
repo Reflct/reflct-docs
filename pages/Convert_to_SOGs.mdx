@@ -2,7 +2,7 @@
 
 To get the best performance for your 3D Gaussian Splats in Reflct, we recommend the **SOGs** format. This guide shows you how to convert your existing .PLY files using the powerful, open-source Splat-Transform library, created by the talented team at PlayCanvas. [Read their docs here.](https://developer.playcanvas.com/user-manual/gaussian-splatting/editing/splat-transform/#format-conversion) 
 
-**SOGs** (Self-Organizing Gaussians) is a format designed for high-performance, web-based rendering. Its key advantage lies in its powerful compression, which can shrink original .PLY files by **up to 20x**. This dramatic file size reduction also leads to more efficient memory usage, ensuring your creations load quickly and run smoothly for all users, on any device.
+**SOGs** (Self-Organizing Gaussians) is a format designed for high-performance, web-based rendering. Its key advantage lies in its powerful compression, which can shrink original .PLY files by **up to 95%**. This dramatic file size reduction also leads to more efficient memory usage, ensuring your creations load quickly and run smoothly for all users, on any device.
 
 ### Prerequisites
 
@@ -23,15 +23,13 @@ This command downloads and installs the Splat Transform library, making it avail
 
 ### Conversion Process
 
-Once the installation is complete, you are ready to convert your **PLY** files. The process is straightforward and can be completed with a single command. We recommend creating a new folder for the output as the conversion will create several new files.
+Once the installation is complete, you are ready to convert your **PLY** files. The process is straightforward and can be completed with a single command. 
 
 * **Navigate to your project directory.** Open your terminal and use the `cd` command to move into the folder where your **PLY** file is located.
-* **Run the conversion command.** Use the following command to convert your file, replacing `your-file.ply` with the name of your file and `output-directory/` with the desired location for your converted files.
+* **Run the conversion command.** Use the following command to convert your file, replacing `your-file.ply` with the name of your .ply file. 
     ```bash
-    splat-transform your-file.ply output-directory/meta.json
+    splat-transform your-file.ply your-file.sog
     ```
-
-* **Verify your files.** After the command finishes, you will find your new **SOGs** files in the output directory you specified. This will include a `meta.json` file and a series of webp files that contain the splat data.
 
 ### What's Next?
 
